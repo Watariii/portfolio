@@ -1,0 +1,46 @@
+import { useState, useEffect } from "react";
+import { Sun, Moon } from "lucide-react";
+import { cn } from "../../lib/utils";
+
+export const ThemeToggle = () => {
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("theme") === "dark") {
+      setIsDarkTheme(true);
+      document.documentElement.classList.add("dark");
+    } else {
+      setIsDarkTheme((prev) => !prev);
+      document.documentElement.classList.remove("dark", true);
+      localStorage.setItem("theme", "light");
+    }
+  }, []);
+
+  const handleToggleTheme = () => {
+    if (isDarkTheme) {
+      setIsDarkTheme((prev) => !prev);
+      document.documentElement.classList.toggle("dark", false);
+      localStorage.setItem("theme", "light");
+    } else {
+      setIsDarkTheme((prev) => !prev);
+      document.documentElement.classList.toggle("dark", true);
+      localStorage.setItem("theme", "dark");
+    }
+  };
+  // подумать что делать "focus:outline-hidden", по хорошему обводку нужно оставить
+  return (
+    <button
+      onClick={handleToggleTheme}
+      className={cn(
+        "fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300",
+        "focus:outline-hidden",
+      )}
+    >
+      {isDarkTheme ? (
+        <Sun className="h-6 w-6 text-yellow-300" />
+      ) : (
+        <Moon className="h-6 w-6 text-blue-900" />
+      )}
+    </button>
+  );
+};
