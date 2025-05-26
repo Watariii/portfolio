@@ -40,7 +40,7 @@
   @keyframes fade-in {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(10px);
     }
     to {
       opacity: 1;
@@ -136,7 +136,7 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  button {
+  a,button {
     cursor: pointer;
   }
 }
@@ -149,16 +149,18 @@
     max-width: 640px;
   }
   @media (width >= 768px) {
-    max-width: 768px;
+    max-width: 670px;
   }
   @media (width >= 1024px) {
-    max-width: 1024px;
+    max-width: 930px;
   }
   @media (width >= 1280px) {
-    max-width: 1280px;
+    max-width: 1200px;
+    /* было 1280 */
   }
   @media (width >= 1400px) {
-    max-width: 1400px;
+    max-width: 1310px;
+    /* было 1400 */
   }
 }
 
