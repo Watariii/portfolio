@@ -3,17 +3,18 @@ import { cn } from "../lib/utils";
 import { X, Menu } from "lucide-react";
 import { lang } from "../constants/constants";
 import { useLang } from "../context/useLang";
-const navItems = [
-  { name: "Home", href: "#person" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
+import { nav } from "../constants/constants";
+import { ThemeToggle } from "../components/ThemeToggle";
 export const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const {isLang, setIsLang} = useLang();
+  const { isLang, setIsLang } = useLang();
+  const [navItems, setNavItems] = useState(
+    isLang === lang.ru ? nav.ru : nav.eng
+  );
+  useEffect(() => {
+    setNavItems(isLang === lang.ru ? nav.ru : nav.eng);
+  }, [isLang]);
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -37,6 +38,14 @@ export const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [isMenuOpen]);
+
   const handleToggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
@@ -44,10 +53,12 @@ export const NavBar = () => {
     <nav
       className={cn(
         "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/60 backdrop-blur-sm shadow-md" : "py-5"
+        isScrolled && !isMenuOpen
+          ? "py-3 bg-background/60 backdrop-blur-sm shadow-md"
+          : "py-5"
       )}
     >
-      <div className="container flex items-center justify-between">
+      <div className="px-4 sm:container flex items-center justify-between">
         <a
           className="text-xl font-bold text-primary flex items-center"
           href="#person"
@@ -58,30 +69,34 @@ export const NavBar = () => {
             Portfolio
           </span>
         </a>
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex md:gap-4 lg:gap-8 md:items-center space-x-8">
           {navItems.map((item, index) => (
             <a
               key={index}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
+              className="m-0 text-foreground/80 hover:text-primary transition-colors duration-300"
             >
               {item.name}
             </a>
           ))}
           <button
-            className="text-foreground/80 hover:text-primary transition-colors duration-300"
+            className="m-0 text-foreground/80 hover:text-primary transition-colors duration-300"
             onClick={handleChangeLanguage}
           >
             {isLang}
           </button>
+          <ThemeToggle />
         </div>
-        <button
-          className="md:hidden p-2 text-foreground z-50"
-          onClick={handleToggleMenu}
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex gap-4 items-center justify-center md:hidden z-50">
+          <ThemeToggle />
+          <button
+            className="text-foreground"
+            onClick={handleToggleMenu}
+            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
         <div
           className={cn(
             "fixed inset-0 bg-background/95 backgroun-blur-md z-40 flex flex-col items-center justify-center",
