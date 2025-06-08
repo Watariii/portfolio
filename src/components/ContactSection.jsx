@@ -2,35 +2,10 @@ import { cn } from "../lib/utils";
 // import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
-import {
-  Mail,
-  MapPin,
-  Phone,
-  Send,
-  Linkedin,
-  Twitter,
-  Instagram,
-  Twitch,
-} from "lucide-react";
+import { Mail, MapPin, Send, Linkedin, Github, Gitlab } from "lucide-react";
 export const ContactSection = () => {
-  // const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    setIsSubmitting(true);
-
-    // setTimeout(() => {
-    //   toast({
-    //     title: "Message sent!",
-    //     description: "Thank you for your message. I'll get back to you soon.",
-    //   });
-    //   setIsSubmitting(false);
-    // }, 1500);
-  };
   return (
-    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
+    <section id="contact" className="pt-24 pb-12 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Get In <span className="text-primary"> Touch</span>
@@ -40,139 +15,87 @@ export const ContactSection = () => {
           Have a project in mind or want to collaborate? Feel free to reach out.
           I'm always open to discussing new opportunities.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="flex flex-col items-center space-y-8">
-            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+        <div className="flex flex-col items-center justify-center gap-12">
+          <div className="lg:w-full flex flex-col items-center space-y-8 bg-card p-8 rounded-lg shadow-xs">
+            <h3 className="text-2xl font-semibold mb-6 cursor-default">
+              Contact Information
+            </h3>
 
-            <div className="space-y-6 justify-center">
+            <div className="flex flex-col gap-4 items-start justify-center lg:flex-row md:w-full lg:items-center lg:justify-between">
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Mail className="h-6 w-6 text-primary" />{" "}
                 </div>
-                <div>
-                  <h4 className="font-medium">Email</h4>
+                <div className="flex flex-col items-start">
+                  <h4 className="font-medium cursor-default">Email</h4>
                   <a
-                    href="mailto:hello@gmail.com"
+                    href="mailto:nikita.sukhov_rsce@mail.ru"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    hello@gmail.com
+                    nikita.sukhov_rsce@mail.ru
                   </a>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />{" "}
+                  <Send className="h-6 w-6 text-primary" />
                 </div>
-                <div>
-                  <h4 className="font-medium">Phone</h4>
+                <div className="flex flex-col items-start">
+                  <h4 className="font-medium cursor-default">Telegram</h4>
                   <a
-                    href="tel:+11234567890"
+                    href="https://t.me/sukhov_nikita"
                     className="text-muted-foreground hover:text-primary transition-colors"
+                    target="_blank"
                   >
-                    +1 (123) 456-7890
+                    @sukhov_nikita
                   </a>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <MapPin className="h-6 w-6 text-primary" />{" "}
+                  <MapPin className="h-6 w-6 text-primary" />
                 </div>
-                <div>
-                  <h4 className="font-medium">Location</h4>
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                <div className="flex flex-col items-start">
+                  <h4 className="font-medium cursor-default">Location</h4>
+                  <a
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                    href="https://yandex.ru/maps/-/CHGb6YmL"
+                    target="_blank"
+                  >
                     Королёв, МО, Россия
                   </a>
                 </div>
               </div>
             </div>
-
-            <div className="pt-8">
-              <h4 className="font-medium mb-4"> Connect With Me</h4>
-              <div className="flex space-x-4 justify-center">
-                <a href="#" target="_blank">
-                  <Linkedin />
-                </a>
-                <a href="#" target="_blank">
-                  <Twitter />
-                </a>
-                <a href="#" target="_blank">
-                  <Instagram />
-                </a>
-                <a href="#" target="_blank">
-                  <Twitch />
-                </a>
-              </div>
-            </div>
           </div>
-
-          <div
-            className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
-          >
-            <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
-
-            <form className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-2"
-                >
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="Pedro Machado..."
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-2"
-                >
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="john@gmail.com"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary resize-none"
-                  placeholder="Hello, I'd like to talk about..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={cn(
-                  "cosmic-button w-full flex items-center justify-center gap-2"
-                )}
+          <div>
+            <h4 className="font-medium mb-4 cursor-default">Connect With Me</h4>
+            <div className="flex space-x-4 justify-center">
+              <a
+                href="https://github.com/Watariii"
+                target="_blank"
+                title="GitHub"
+                className="hover:text-primary transition-colors duration-300"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
-                <Send size={16} />
-              </button>
-            </form>
+                <Github />
+              </a>
+              <a
+                href="https://gl.re-action.online/nikita.sukhov"
+                target="_blank"
+                title="Gitlab"
+                className="hover:text-primary transition-colors duration-300"
+              >
+                <Gitlab />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/sukhov-nikita/"
+                target="_blank"
+                title="Linkedin"
+                className="hover:text-primary transition-colors duration-300"
+              >
+                <Linkedin />
+              </a>
+            </div>
           </div>
         </div>
       </div>

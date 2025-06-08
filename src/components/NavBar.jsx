@@ -3,19 +3,16 @@ import { cn } from "../lib/utils";
 import { X, Menu } from "lucide-react";
 import { lang } from "../constants/constants";
 import { useLang } from "../context/useLang";
-import { nav } from "../constants/constants";
+import { navText } from "../constants/constants";
 import { ThemeToggle } from "../components/ThemeToggle";
+
 export const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isLang, setIsLang } = useLang();
-  const [navItems, setNavItems] = useState(
-    isLang === lang.ru ? nav.ru : nav.eng
-  );
-  useEffect(() => {
-    setNavItems(isLang === lang.ru ? nav.ru : nav.eng);
-  }, [isLang]);
-
+  const { isLang, setIsLang, handleText } = useLang();
+  const [text] = handleText(navText);
+  const navItems = text;
+  
   const handleScroll = () => {
     if (window.scrollY > 10) {
       setIsScrolled(true);
@@ -52,9 +49,9 @@ export const NavBar = () => {
   return (
     <nav
       className={cn(
-        "fixed w-full z-40 transition-all duration-300",
+        "fixed w-full z-40",
         isScrolled && !isMenuOpen
-          ? "py-3 bg-background/60 backdrop-blur-sm shadow-md"
+          ? "py-3 bg-background/60 backdrop-blur-sm shadow-md transition-all duration-300"
           : "py-5"
       )}
     >
@@ -99,11 +96,15 @@ export const NavBar = () => {
         </div>
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 backgroun-blur-md z-40 flex flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
-            isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
+            "fixed inset-0 bg-background/95 backgroun-blur-md z-40 hidden",
+            "transition-all duration-500 md:hidden",
+            isScrolled
+              ? isMenuOpen
+                ? "flex flex-col items-center justify-center pointer-events-auto"
+                : ""
+              : isMenuOpen
+              ? "flex flex-col items-center justify-center opacity-100 pointer-events-auto"
+              : "flex flex-col items-center justify-center opacity-0 pointer-events-none"
           )}
         >
           <div className="flex flex-col space-y-8 text-xl">

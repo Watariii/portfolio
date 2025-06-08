@@ -1,9 +1,9 @@
 export const lang = {
-  ru: "Ru",
-  eng: "Eng",
+  ru: "Eng",
+  eng: "Рус",
 };
 
-export const nav = {
+export const navText = {
   ru: [
     { name: "Главная", href: "#person" },
     { name: "Обо мне", href: "#about" },
@@ -17,5 +17,19 @@ export const nav = {
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
+  ],
+};
+
+export const personSectionText = {
+  ru: ["Привет! Меня зовут", "Никита", "Сухов", "Создаю функциональные веб-интерфейсы с использованием современных технологий, специализируясь на frontend разработке.",
+    "Посмотреть мои работы"
+  ],
+  eng: [
+    "Hello! I'm",
+    "Nikita",
+    "Sukhov",
+    "I create functional web interfaces using modern technologies, specializing in frontend development.",
+    "View My Works",
+
   ],
 };

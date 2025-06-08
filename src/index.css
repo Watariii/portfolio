@@ -151,6 +151,10 @@
   padding-inline: 2rem;
   width: 100%;
   max-width: 1310px;
+  
+  @media (width <= 375px) {
+    padding-inline: 0px;
+  }
 }
 
 @utility text-glow {
