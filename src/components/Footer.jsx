@@ -52,27 +52,6 @@ export const Footer = () => {
   return (
     <footer className="pb-12 px-4 relative bg-secondary/30 cursor-default">
       © Nikita Sukhov, 2025
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 p-4">
-        {skills.map(({ name, icon: Icon }) => (
-          <div
-            key={name}
-            className="flex flex-col items-center gap-2 text-center hover:scale-105 transition-transform"
-          >
-            <Icon size={32} className="text-blue-600 dark:text-blue-400" />
-            <span className="text-sm">{name}</span>
-          </div>
-        ))}
-      </div>
-      <div className="flex space-x-2">
-        {["primary", "secondary"].map((type) => (
-          <button
-            key={type}
-            className="px-4 py-1 rounded-full text-sm border bg-blue-600 text-white"
-          >
-            Основные
-          </button>
-        ))}
-      </div>
     </footer>
   );
 };

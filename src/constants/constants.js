@@ -11,6 +11,31 @@ import posmotri from "../images/posmotri.png";
 import learning from "../images/learning.png";
 import weddingWebsite from "../images/wedding-website.png";
 
+import {
+  FileCode,
+  Palette,
+  Scissors,
+  Zap,
+  Atom,
+  ShieldCheck,
+  Repeat,
+  Wind,
+  LayoutGrid,
+  Leaf,
+  Server,
+  Database,
+  Flame,
+  Package,
+  PackagePlus,
+  Dog,
+  TestTube,
+  GitBranch,
+  Ship,
+  Figma,
+  Brush,
+  CodeXml,
+} from "lucide-react";
+
 export const lang = {
   ru: "Eng",
   eng: "Рус",
@@ -89,45 +114,67 @@ export const skillsSectionText = {
 };
 //_________________________________________________________________________
 export const skills = [
-  // Frontend
-  { skillName: "HTML", level: 95, category: "frontend" },
-  { skillName: "CSS", level: 95, category: "frontend" },
-  { skillName: "SCSS/SASS", level: 95, category: "frontend" },
-  { skillName: "JavaScript", level: 90, category: "frontend" },
-  { skillName: "React", level: 90, category: "frontend" },
-  { skillName: "TypeScript", level: 85, category: "frontend" },
-  { skillName: "Redux/RTK/RTK-query", level: 90, category: "frontend" },
-  { skillName: "Tailwind CSS", level: 90, category: "frontend" },
-  { skillName: "FSD architecture", level: 90, category: "frontend" },
-
-  // Backend
-  { skillName: "Node.js", level: 80, category: "backend" },
-  { skillName: "Express.js", level: 75, category: "backend" },
-  { skillName: "MongoDB", level: 70, category: "backend" },
-
-  // Tools
-  { skillName: "Vite.js", level: 80, category: "tools" },
-  { skillName: "Webpack", level: 80, category: "tools" },
-  { skillName: "Pug", level: 80, category: "tools" },
-  { skillName: "Gulp.js", level: 80, category: "tools" },
-  { skillName: "NPM", level: 80, category: "tools" },
-  { skillName: "yarn", level: 80, category: "tools" },
-  { skillName: "Git/GitHub/GitLab", level: 90, category: "tools" },
-  { skillName: "Docker", level: 70, category: "tools" },
-  { skillName: "Figma", level: 85, category: "tools" },
-  { skillName: "Pixso", level: 85, category: "tools" },
-  { skillName: "VS Code", level: 95, category: "tools" },
+  { skillName: "HTML", icon: FileCode, category: ["Primary", "Основные"] },
+  { skillName: "CSS", icon: Palette, category: ["Secondary", "Вторичные"] },
+  { skillName: "SCSS/SASS", icon: Scissors, category: ["Primary", "Основные"] },
+  { skillName: "JavaScript", icon: Zap, category: ["Primary", "Основные"] },
+  { skillName: "React", icon: Atom, category: ["Primary", "Основные"] },
+  {
+    skillName: "TypeScript",
+    icon: ShieldCheck,
+    category: ["Primary", "Основные"],
+  },
+  {
+    skillName: "Redux/RTK/RTK-query",
+    icon: Repeat,
+    category: ["Primary", "Основные"],
+  },
+  {
+    skillName: "Tailwind CSS",
+    icon: Wind,
+    category: ["Secondary", "Вторичные"],
+  },
+  {
+    skillName: "FSD architecture",
+    icon: LayoutGrid,
+    category: ["Primary", "Основные"],
+  },
+  { skillName: "Node.js", icon: Leaf, category: ["Secondary", "Вторичные"] },
+  {
+    skillName: "Express.js",
+    icon: Server,
+    category: ["Secondary", "Вторичные"],
+  },
+  {
+    skillName: "MongoDB",
+    icon: Database,
+    category: ["Secondary", "Вторичные"],
+  },
+  { skillName: "Vite.js", icon: Flame, category: ["Primary", "Основные"] },
+  { skillName: "Webpack", icon: Package, category: ["Secondary", "Вторичные"] },
+  { skillName: "Pug", icon: Dog, category: ["Secondary", "Вторичные"] },
+  {
+    skillName: "Gulp.js",
+    icon: TestTube,
+    category: ["Secondary", "Вторичные"],
+  },
+  { skillName: "NPM", icon: PackagePlus, category: ["Primary", "Основные"] },
+  { skillName: "yarn", icon: PackagePlus, category: ["Primary", "Основные"] },
+  {
+    skillName: "Git/GitHub/GitLab",
+    icon: GitBranch,
+    category: ["Primary", "Основные"],
+  },
+  { skillName: "Docker", icon: Ship, category: ["Secondary", "Вторичные"] },
+  { skillName: "Figma", icon: Figma, category: ["Secondary", "Вторичные"] },
+  { skillName: "Pixso", icon: Brush, category: ["Primary", "Основные"] },
+  { skillName: "VS Code", icon: CodeXml, category: ["Primary", "Основные"] },
 ];
 
-export const categories = [
-  "все",
-  "основные",
-  "дополнительные",
-  "frontend",
-  "backend",
-  "инструменты",
-];
-export const categoriess = ["all", "frontend", "backend", "tools"];
+export const categoriesText = {
+  ru: ["Все", "Основные", "Вторичные"],
+  eng: ["All", "Primary", "Secondary"],
+};
 //_________________________________________________________________________
 export const getProjects = (lang, isDarkTheme) => [
   {
@@ -177,7 +224,7 @@ export const getProjects = (lang, isDarkTheme) => [
     title: "Wedding's website",
     description:
       lang === "Eng"
-        ? "Садебный сайт для информационной поддержки гостей и взаимодейстия с организаторами"
+        ? "Свадебный сайт для информационной поддержки гостей и взаимодейстия с организаторами"
         : "Wedding's website for information support of guests and interaction with organizers",
     image: weddingWebsite,
     tags: [

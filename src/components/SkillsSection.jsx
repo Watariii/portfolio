@@ -1,17 +1,47 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 import { useText } from "../context/useText";
+import { useLang } from "../context/useLang";
 import { useTheme } from "../context/useTheme";
-import { skillsSectionText, skills, categories } from "../constants/constants";
+import {
+  skillsSectionText,
+  skills,
+  categoriesText,
+} from "../constants/constants";
 
 export const SkillsSection = () => {
+  const { isLang } = useLang();
   const text = useText(skillsSectionText);
   const { isDarkTheme } = useTheme();
+  const categories = isLang === "Eng" ? categoriesText.ru : categoriesText.eng;
 
-  const [activeCategory, setActiveCategory] = useState("all" || "все");
-  const filtredSkills = skills.filter(
-    (item) => item.category === activeCategory || activeCategory === "all"
-  );
+  const [activeCategory, setActiveCategory] = useState();
+  const filtredSkills = skills.filter((item) => {
+    if (activeCategory === "All" || activeCategory === "Все") return true;
+    return item.category.includes(activeCategory);
+  });
+
+  useEffect(() => {
+    console.log(activeCategory);
+    setActiveCategory((prev) => {
+      switch (prev) {
+        case "All":
+          return "Все";
+        case "Все":
+          return "All";
+        case "Primary":
+          return "Основные";
+        case "Основные":
+          return "Primary";
+        case "Secondary":
+          return "Вторичные";
+        case "Вторичные":
+          return "Secondary";
+        case undefined:
+          return isLang === "Eng" ? "Основные" : "Primary";
+      }
+    });
+  }, [isLang]);
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
@@ -36,19 +66,21 @@ export const SkillsSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtredSkills.map((item, index) => (
+        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-6">
+          {filtredSkills.map(({skillName, icon: Icon}, index) => (
             <div
               key={index}
               className={cn(
-                "flex items-center justify-center bg-card p-6 rounded-lg shadow-sm card-hover cursor-default",
+                "flex items-center justify-center sm:bg-card sm:p-4 sm:rounded-lg sm:shadow-sm sm:hover:scale-105 sm:transition-transform sm:card-hover cursor-default",
                 isDarkTheme && "shadow-white/20"
               )}
             >
-              <div className="text-left flex items-center justify-center">
-                <h3 className="font-semibold text-lg flex items-center justify-center">
+              <div className="flex flex-col items-center gap-1 text-center ">
+                <Icon size={32} className="text-blue-600 dark:text-blue-400" />
+                <span className="text-sm">{skillName}</span>
+                {/* <h3 className="font-semibold text-lg flex items-center justify-center">
                   {item.skillName}
-                </h3>
+                </h3> */}
               </div>
             </div>
           ))}
