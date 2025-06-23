@@ -1,88 +1,53 @@
-import { ExternalLink, Github,ArrowRight } from "lucide-react";
-const projects = [
-  {
-    id: 1,
-    title: "title",
-    description: "description",
-    image: "/images/project1.png",
-    tags: ["React", "Tailwind CSS"],
-    demoUrl: "#",
-    gitHubUrl: "#",
-  },
-  {
-    id: 2,
-    title: "title",
-    description: "description",
-    image: "/images/project1.png",
-    tags: ["React", "Tailwind CSS"],
-    demoUrl: "#",
-    gitHubUrl: "#",
-  },
-  {
-    id: 3,
-    title: "title",
-    description: "description",
-    image: "/images/project1.png",
-    tags: ["React", "Tailwind CSS"],
-    demoUrl: "#",
-    gitHubUrl: "#",
-  },
-  {
-    id: 4,
-    title: "title",
-    description: "description",
-    image: "/images/project1.png",
-    tags: ["React", "Tailwind CSS"],
-    demoUrl: "#",
-    gitHubUrl: "#",
-  },
-  {
-    id: 5,
-    title: "title",
-    description: "description",
-    image: "/images/project1.png",
-    tags: ["React", "Tailwind CSS"],
-    demoUrl: "#",
-    gitHubUrl: "#",
-  },
-];
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { getProjects, projectsSectionText } from "../constants/constants";
+import { useLang } from "../context/useLang";
+import { useText } from "../context/useText";
+import { useTheme } from "../context/useTheme";
+import { cn } from "../lib/utils";
 
 export const ProjectsSection = () => {
+  const { isLang } = useLang();
+  const { isDarkTheme } = useTheme();
+  const text = useText(projectsSectionText);
+  const projects = getProjects(isLang,isDarkTheme);
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Featured <span className="text-primary"> Projects </span>
+        <h2 className="flex gap-2 items-center justify-center text-3xl md:text-4xl font-bold mb-4 text-center">
+          {text[0]}
+          <span className="text-primary">{text[1]}</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects. Each project was carefully
-          crafted with attention to detail, performance, and user experience.
+          {text[2]}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              className={cn(
+                "h-full flex flex-col group bg-card rounded-lg overflow-hidden shadow-sm card-hover",
+                isDarkTheme && "shadow-white/20"
+              )}
             >
-              <div className="h-48 overflow-hidden flex items-center justify-center">
+              <a href={project.demoUrl} target="_blank" className="h-48 overflow-hidden flex items-center justify-center">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-              </div>
-              <div className="p-6">
+              </a>
+              <div className="flex flex-col flex-1 p-6 justify-between">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((item, index) => (
                     <span
                       key={index}
-                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                      className={cn("px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground shadow-md", isDarkTheme && 'shadow-white/10')}
                     >
                       {item}
                     </span>
                   ))}
                 </div>
-                <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
+                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
                 <p className="text-muted-foreground text-sm mb-4">
                   {project.description}
                 </p>
@@ -92,7 +57,7 @@ export const ProjectsSection = () => {
                       href={project.demoUrl}
                       target="_blank"
                       className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                      title="Ссылка на демо проекта"
+                      title={text[3]}
                     >
                       <ExternalLink size={20} />
                     </a>
@@ -100,7 +65,7 @@ export const ProjectsSection = () => {
                       href={project.gitHubUrl}
                       target="_blank"
                       className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                      title="Ссылка на проект на GitHub"
+                      title={text[4]}
                     >
                       <Github size={20} />
                     </a>
@@ -111,12 +76,13 @@ export const ProjectsSection = () => {
           ))}
         </div>
         <div className="text-center mt-12">
-            <a
+          <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
             href="https://github.com/Watariii?tab=repositories"
           >
-            Check My Github <ArrowRight size={16} />
+            {text[5]}
+            <ArrowRight size={16} />
           </a>
         </div>
       </div>

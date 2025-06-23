@@ -1,39 +1,23 @@
 import { useState } from "react";
 import { cn } from "../lib/utils";
-const skills = [
-  // Frontend
-  { skillName: "HTML/CSS", level: 95, category: "frontend" },
-  { skillName: "JavaScript", level: 90, category: "frontend" },
-  { skillName: "React", level: 90, category: "frontend" },
-  { skillName: "TypeScript", level: 85, category: "frontend" },
-  { skillName: "Tailwind CSS", level: 90, category: "frontend" },
-  { skillName: "FSD architecture", level: 90, category: "frontend" },
-
-  // Backend
-  { skillName: "Node.js", level: 80, category: "backend" },
-  { skillName: "Express.js", level: 75, category: "backend" },
-  { skillName: "MongoDB", level: 70, category: "backend" },
-
-  // Tools
-  { skillName: "Vite.js", level: 80, category: "frontend" },
-  { skillName: "Git/GitHub/GitLab", level: 90, category: "tools" },
-  { skillName: "Docker", level: 70, category: "tools" },
-  { skillName: "Figma", level: 85, category: "tools" },
-  { skillName: "VS Code", level: 95, category: "tools" },
-];
-
-const categories = ["all", "frontend", "backend", "tools"];
+import { useText } from "../context/useText";
+import { useTheme } from "../context/useTheme";
+import { skillsSectionText, skills, categories } from "../constants/constants";
 
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const text = useText(skillsSectionText);
+  const { isDarkTheme } = useTheme();
+
+  const [activeCategory, setActiveCategory] = useState("all" || "все");
   const filtredSkills = skills.filter(
     (item) => item.category === activeCategory || activeCategory === "all"
   );
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary"> Skills</span>
+        <h2 className="flex gap-2 items-center justify-center text-3xl md:text-4xl font-bold mb-12 text-center">
+          {text[0]}
+          <span className="text-primary">{text[1]}</span>
         </h2>
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((item, index) => (
@@ -56,10 +40,15 @@ export const SkillsSection = () => {
           {filtredSkills.map((item, index) => (
             <div
               key={index}
-              className="flex items-center justify-center bg-card p-6 rounded-lg shadow-xs card-hover cursor-default"
+              className={cn(
+                "flex items-center justify-center bg-card p-6 rounded-lg shadow-sm card-hover cursor-default",
+                isDarkTheme && "shadow-white/20"
+              )}
             >
               <div className="text-left flex items-center justify-center">
-                <h3 className="font-semibold text-lg flex items-center justify-center">{item.skillName}</h3>
+                <h3 className="font-semibold text-lg flex items-center justify-center">
+                  {item.skillName}
+                </h3>
               </div>
             </div>
           ))}

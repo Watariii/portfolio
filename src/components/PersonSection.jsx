@@ -1,10 +1,9 @@
 import { ArrowDown } from "lucide-react";
 import { personSectionText } from "../constants/constants";
-import { useLang } from "../context/useLang";
+import { useText } from "../context/useText";
 
 export const PersonSection = () => {
-  const { handleText } = useLang();
-  const [text] = handleText(personSectionText);
+  const text = useText(personSectionText);
 
   return (
     <section

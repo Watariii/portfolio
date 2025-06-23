@@ -1,31 +1,28 @@
-import { cn } from "../lib/utils";
-// import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
-
 import { Mail, MapPin, Send, Linkedin, Github, Gitlab } from "lucide-react";
+import { useText } from "../context/useText";
+import { contactSectionText } from "../constants/constants";
+
 export const ContactSection = () => {
+  const text = useText(contactSectionText);
   return (
     <section id="contact" className="pt-24 pb-12 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Get In <span className="text-primary"> Touch</span>
+        <h2 className="flex items-center justify-center gap-2 text-3xl md:text-4xl font-bold mb-4 text-center">
+          {text[0]}
+          <span className="text-primary">{text[1]}</span>
         </h2>
-
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Have a project in mind or want to collaborate? Feel free to reach out.
-          I'm always open to discussing new opportunities.
+          {text[2]}
         </p>
         <div className="flex flex-col items-center justify-center gap-12">
-          <div className="lg:w-full flex flex-col items-center space-y-8 bg-card p-8 rounded-lg shadow-xs">
+          <div className="py-8 px-4 sm:p-8 lg:w-full flex flex-col items-center space-y-8 bg-card rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6 cursor-default">
-              Contact Information
+              {text[3]}
             </h3>
-
             <div className="flex flex-col gap-4 items-start justify-center lg:flex-row md:w-full lg:items-center lg:justify-between">
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" />{" "}
-                </div>
+                  <Mail className="h-6 w-6 text-primary" /></div>
                 <div className="flex flex-col items-start">
                   <h4 className="font-medium cursor-default">Email</h4>
                   <a
@@ -56,20 +53,19 @@ export const ContactSection = () => {
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div className="flex flex-col items-start">
-                  <h4 className="font-medium cursor-default">Location</h4>
+                  <h4 className="font-medium cursor-default">{text[4]}</h4>
                   <a
                     className="text-muted-foreground hover:text-primary transition-colors"
                     href="https://yandex.ru/maps/-/CHGb6YmL"
                     target="_blank"
-                  >
-                    Королёв, МО, Россия
+                  >{text[5]}
                   </a>
                 </div>
               </div>
             </div>
           </div>
           <div>
-            <h4 className="font-medium mb-4 cursor-default">Connect With Me</h4>
+            <h4 className="font-medium mb-4 cursor-default">{text[6]}</h4>
             <div className="flex space-x-4 justify-center">
               <a
                 href="https://github.com/Watariii"

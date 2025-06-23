@@ -3,16 +3,16 @@ import { cn } from "../lib/utils";
 import { X, Menu } from "lucide-react";
 import { lang } from "../constants/constants";
 import { useLang } from "../context/useLang";
+import { useText } from "../context/useText";
 import { navText } from "../constants/constants";
 import { ThemeToggle } from "../components/ThemeToggle";
 
 export const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isLang, setIsLang, handleText } = useLang();
-  const [text] = handleText(navText);
-  const navItems = text;
-  
+  const { isLang, setIsLang } = useLang();
+  const navItems = useText(navText);
+
   const handleScroll = () => {
     if (window.scrollY > 10) {
       setIsScrolled(true);
@@ -24,10 +24,6 @@ export const NavBar = () => {
   const handlePageReload = (e) => {
     e.preventDefault();
     window.location.reload();
-  };
-
-  const handleChangeLanguage = () => {
-    isLang === lang.ru ? setIsLang(lang.eng) : setIsLang(lang.ru);
   };
 
   useEffect(() => {
@@ -45,6 +41,11 @@ export const NavBar = () => {
 
   const handleToggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
+  };
+
+  const handleChangeLanguage = () => {
+    isLang === lang.ru ? setIsLang(lang.eng) : setIsLang(lang.ru);
+    if (window.innerWidth < '768') handleToggleMenu();
   };
   return (
     <nav

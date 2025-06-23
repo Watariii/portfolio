@@ -1,30 +1,16 @@
 import { useState, useEffect } from "react";
 import { Sun, Moon } from "lucide-react";
 import { cn } from "../lib/utils";
+import { useTheme } from "../context/useTheme";
 
 export const ThemeToggle = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
-
-  useEffect(() => {
-    if (localStorage.getItem("theme") === "dark") {
-      setIsDarkTheme(true);
-      document.documentElement.classList.add("dark");
-    } else {
-      setIsDarkTheme((prev) => !prev);
-      document.documentElement.classList.remove("dark", true);
-      localStorage.setItem("theme", "light");
-    }
-  }, []);
+  const { isDarkTheme, setIsDarkTheme } = useTheme();
 
   const handleToggleTheme = () => {
     if (isDarkTheme) {
       setIsDarkTheme((prev) => !prev);
-      document.documentElement.classList.toggle("dark", false);
-      localStorage.setItem("theme", "light");
     } else {
       setIsDarkTheme((prev) => !prev);
-      document.documentElement.classList.toggle("dark", true);
-      localStorage.setItem("theme", "dark");
     }
   };
   // подумать что делать "focus:outline-hidden", по хорошему обводку нужно оставить
@@ -33,9 +19,9 @@ export const ThemeToggle = () => {
       onClick={handleToggleTheme}
       className={cn(
         "rounded-full transition-colors duration-300",
-        "focus:outline-hidden",
+        "focus:outline-hidden"
       )}
-      aria-label='Toggle theme'
+      aria-label="Toggle theme"
     >
       {isDarkTheme ? (
         <Sun className="h-6 w-6 text-yellow-300" />
