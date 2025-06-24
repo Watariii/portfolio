@@ -67,7 +67,7 @@ export const SkillsSection = () => {
         </div>
 
         <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-6">
-          {filtredSkills.map(({skillName, icon: Icon}, index) => (
+          {filtredSkills.map(({skillName, icon: Icon, color}, index) => (
             <div
               key={index}
               className={cn(
@@ -76,11 +76,8 @@ export const SkillsSection = () => {
               )}
             >
               <div className="flex flex-col items-center gap-1 text-center ">
-                <Icon size={32} className="text-blue-600 dark:text-blue-400" />
+                <Icon size={32} className={cn(color)} />
                 <span className="text-sm">{skillName}</span>
-                {/* <h3 className="font-semibold text-lg flex items-center justify-center">
-                  {item.skillName}
-                </h3> */}
               </div>
             </div>
           ))}
