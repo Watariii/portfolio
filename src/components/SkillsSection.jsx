@@ -22,7 +22,6 @@ export const SkillsSection = () => {
   });
 
   useEffect(() => {
-    console.log(activeCategory);
     setActiveCategory((prev) => {
       switch (prev) {
         case "All":
@@ -54,7 +53,7 @@ export const SkillsSection = () => {
             <button
               key={index}
               className={cn(
-                "px-5 py-2 rounded-full transition-color duration-300 capitalize",
+                "px-5 py-2 rounded-full transition-color duration-300 capitalize hover:text-primary transition-colors",
                 activeCategory === item && "bg-primary text-primary-foreground"
               )}
               onClick={() => {
@@ -71,7 +70,7 @@ export const SkillsSection = () => {
             <div
               key={index}
               className={cn(
-                "flex items-center justify-center sm:bg-card sm:p-4 sm:rounded-lg sm:shadow-sm sm:hover:scale-105 sm:transition-transform sm:card-hover cursor-default",
+                "flex items-center justify-center sm:bg-card sm:p-4 sm:rounded-lg sm:shadow-sm hover:scale-105 sm:transition-transform sm:card-hover cursor-default",
                 isDarkTheme && "shadow-white/20"
               )}
             >

@@ -12,12 +12,10 @@ import learning from "../images/learning.png";
 import weddingWebsite from "../images/wedding-website.png";
 
 import {
-  FileCode,
   Palette,
   Scissors,
   Zap,
   Atom,
-  ShieldCheck,
   FileType,
   Repeat,
   Wind,
@@ -25,12 +23,9 @@ import {
   Leaf,
   Hexagon,
   Server,
-  Database,
-  Flame,
   Package,
   PackagePlus,
   Dog,
-  TestTube,
   GitBranch,
   Github,
   Ship,
@@ -42,6 +37,8 @@ import {
   FileCode2,
   GlassWater,
   PawPrint,
+  Settings,
+  Blocks,
 } from "lucide-react";
 
 export const lang = {
@@ -88,31 +85,59 @@ export const aboutSectionText = {
     "Обо",
     "Мне",
     "Frontend-разработчик",
-    "Текст о том какой я у меня опыт вкрате",
-    "Мои приемущестенные софт скилы",
+    `Создаю удобные и функциональные веб-интерфейсы, используя современный стек инструментов. Всегда стремлюсь к развитию своих навыков и изучению новых технологий.`,
+    `Активно участвую в командной разработке, внимателен к деталям, ответственно подхожу к выполнению задач, требователен к качеству кода и всегда открыт к конструктивной критике.`,
     "Связаться со мной",
-    "Загрузить резюме",
-    "1 опыт работы",
-    "Длительность что делал",
-    "2 опыт работы",
-    "Длительность что делал",
-    "3 опыт работы",
-    "Длительность что делал",
+    "Ссылка на мой GitHub",
+    "Ссылка на GitHub",
+    "н.в.",
+    "2024",
+    "Re-Action",
+    `- Разработка UI компонентов на React;
+    - Проведение code-review вместе с другими разработчиками;
+    - Оптимизация существующего кода и исправление багов;
+    - Интеграция сторонних сервисов;
+    - Работа с внешним API;
+    - Взаимодействие с командами backend, design, analytic, CEO и SEO в процессе решения задач.
+    `,
+    "2024",
+    "2022",
+    "Обучение в Яндек.Практикум по направлению web-разработчик",
+    `- Обучение навыкам применения HTML, CSS, БЭМ, JavaScript, React, Git, REST API, Node.js, Express.js, mongoDB во frontend и backend разработке;
+    - Разработка адаптивных лендинг сайтов и полноценных web-приложений (frontend + backend)`,
+    "2022",
+    "2021",
+    "Технопарк Кванториум (IT-квантум)",
+    "Разработка сайтов визиток и лендингов в процессе обучения детей базовым навыкам HTML, CSS и JavaScript",
   ],
   eng: [
     "About",
     "Me",
-    "Passionate Web Developer & Tech Creator",
-    "With over 5 years of experience in web development, I specialize in creating responsive, accessible, and performant web applications using modern technologies.",
-    "I'm passionate about creating elegant solutions to complex problems, and I'm constantly learning new technologies and techniques to stay at the forefront of the ever-evolving web landscape.",
-    "Get In Touch",
-    "Download CV",
-    "Web Development",
-    "Creating responsive websites and web applications with modern frameworks.",
-    "UI/UX Design",
-    "Designing intuitive user interfaces and seamless user experiences.",
-    "Project Management",
-    "Leading projects from conception to completion with agile methodologies.",
+    "Frontend developer",
+    `I create user-friendly and functional web interfaces using a modern tech stack. I am always striving to improve my skills and explore new technologies.`,
+    `Actively involved in team development, attentive to details, responsible in task execution, committed to code quality, and always open to constructive feedback.`,
+    "Contact Me",
+    "Link to my GitHub",
+    "Link to GitHub",
+    "present",
+    "2024",
+    "Re-Action",
+    `- Developing UI components in React;
+    - Conducting code reviews with other developers;
+    - Optimizing existing code and fixing bugs;
+    - Integrating third-party services;
+    - Working with external APIs;
+    - Collaborating with backend, design, analytics, CEO and SEO teams to solve tasks.
+    `,
+    "2024",
+    "2022",
+    "Learning at Yandex.Practicum in Web Development",
+    `- Learned to use HTML, CSS, BEM, JavaScript, React, Git, REST API, Node.js, Express.js, and mongoDB in frontend and backend development;
+    - Developed adaptive landing pages and full-fledged web applications (frontend + backend).`,
+    "2022",
+    "2021",
+    "Technopark Quantorium (IT-Quantum)",
+    "Developed landing pages and business card websites while teaching children the basics of HTML, CSS, and JavaScript.",
   ],
 };
 
@@ -122,81 +147,168 @@ export const skillsSectionText = {
 };
 //_________________________________________________________________________
 export const skills = [
-  { skillName: "HTML", icon: FileCode2, color:"text-orange-600" , category: ["Primary", "Основные"] },
-  { skillName: "CSS", icon: Palette, color:"text-blue-500" , category: ["Secondary", "Вторичные"] },
-  { skillName: "SCSS/SASS", icon: Scissors, color:"text-pink-400" , category: ["Primary", "Основные"] },
-  { skillName: "JavaScript", icon: FileJson, color:"text-yellow-300" , category: ["Primary", "Основные"] },
-  { skillName: "React", icon: Atom, color:"text-cyan-400" , category: ["Primary", "Основные"] },
+  {
+    skillName: "HTML",
+    icon: FileCode2,
+    color: "text-orange-600",
+    category: ["Primary", "Основные"],
+  },
+  {
+    skillName: "CSS",
+    icon: Palette,
+    color: "text-blue-500",
+    category: ["Secondary", "Вторичные"],
+  },
+  {
+    skillName: "SCSS/SASS",
+    icon: Scissors,
+    color: "text-pink-400",
+    category: ["Primary", "Основные"],
+  },
+  {
+    skillName: "JavaScript",
+    icon: FileJson,
+    color: "text-yellow-300",
+    category: ["Primary", "Основные"],
+  },
+  {
+    skillName: "React",
+    icon: Atom,
+    color: "text-cyan-400",
+    category: ["Primary", "Основные"],
+  },
   {
     skillName: "TypeScript",
     icon: FileType,
-    color:"text-blue-500",
+    color: "text-blue-500",
     category: ["Primary", "Основные"],
   },
   {
     skillName: "Redux Toolkit",
     icon: Repeat,
-    color:"text-violet-600",
+    color: "text-violet-600",
     category: ["Primary", "Основные"],
   },
   {
     skillName: "Tailwind CSS",
     icon: Wind,
-    color:"text-teal-400",
+    color: "text-teal-400",
     category: ["Secondary", "Вторичные"],
   },
   {
     skillName: "FSD architecture",
     icon: LayoutGrid,
-    color:"text-sky-400",
+    color: "text-sky-400",
     category: ["Primary", "Основные"],
   },
-  { skillName: "Node.js", icon: Hexagon, color:"text-green-700" , category: ["Secondary", "Вторичные"] },
+  {
+    skillName: "BEM",
+    icon: Blocks,
+    color: "text-blue-600",
+    category: ["Secondary", "Вторичные"],
+  },
+  {
+    skillName: "Node.js",
+    icon: Hexagon,
+    color: "text-green-700",
+    category: ["Secondary", "Вторичные"],
+  },
   {
     skillName: "Express.js",
     icon: Server,
-    color:"text-(--primary-foreground)",
+    color: "text-(--primary-foreground)",
     category: ["Secondary", "Вторичные"],
   },
   {
     skillName: "MongoDB",
     icon: Leaf,
-    color:"text-green-500",
+    color: "text-green-500",
     category: ["Secondary", "Вторичные"],
   },
-  { skillName: "Vite.js", icon: Zap, color:"text-yellow-500" , category: ["Primary", "Основные"] },
-  { skillName: "Webpack", icon: Package, color:"text-blue-400" , category: ["Secondary", "Вторичные"] },
-  { skillName: "Pug", icon: Dog, color:"text-orange-200" , category: ["Secondary", "Вторичные"] },
+  {
+    skillName: "Vite.js",
+    icon: Zap,
+    color: "text-yellow-500",
+    category: ["Primary", "Основные"],
+  },
+  {
+    skillName: "Webpack",
+    icon: Package,
+    color: "text-blue-400",
+    category: ["Secondary", "Вторичные"],
+  },
+  {
+    skillName: "Pug",
+    icon: Dog,
+    color: "text-orange-200",
+    category: ["Secondary", "Вторичные"],
+  },
   {
     skillName: "Gulp.js",
     icon: GlassWater,
-    color:"text-red-400",
+    color: "text-red-400",
     category: ["Secondary", "Вторичные"],
   },
-  { skillName: "NPM", icon: PackagePlus, color:"text-red-700" , category: ["Primary", "Основные"] },
-  { skillName: "yarn", icon: PawPrint, color:"text-(--primary-foreground)" , category: ["Primary", "Основные"] },
+  {
+    skillName: "NPM",
+    icon: PackagePlus,
+    color: "text-red-700",
+    category: ["Primary", "Основные"],
+  },
+  {
+    skillName: "yarn",
+    icon: PawPrint,
+    color: "text-(--primary-foreground)",
+    category: ["Primary", "Основные"],
+  },
   {
     skillName: "Git",
     icon: GitBranch,
-    color:"text-sky-400",
+    color: "text-sky-400",
     category: ["Primary", "Основные"],
   },
-    {
+  {
     skillName: "GitHub",
     icon: Github,
-    color:"text-(--primary-foreground)",
+    color: "text-(--primary-foreground)",
     category: ["Primary", "Основные"],
   },
-    {
+  {
     skillName: "GitLab",
     icon: Gitlab,
-    color:"text-orange-400",
+    color: "text-orange-400",
     category: ["Primary", "Основные"],
   },
-  { skillName: "Docker", icon: Ship, color:"text-blue-400" , category: ["Secondary", "Вторичные"] },
-  { skillName: "Figma", icon: Figma, color:"text-(--primary-foreground)" , category: ["Secondary", "Вторичные"] },
-  { skillName: "Pixso", icon: Brush, color:"text-pink-300" , category: ["Primary", "Основные"] },
-  { skillName: "VS Code", icon: CodeXml, color:"text-blue-400" , category: ["Primary", "Основные"] },
+  {
+    skillName: "Docker",
+    icon: Ship,
+    color: "text-blue-400",
+    category: ["Secondary", "Вторичные"],
+  },
+  {
+    skillName: "Figma",
+    icon: Figma,
+    color: "text-(--primary-foreground)",
+    category: ["Secondary", "Вторичные"],
+  },
+  {
+    skillName: "Pixso",
+    icon: Brush,
+    color: "text-pink-300",
+    category: ["Primary", "Основные"],
+  },
+  {
+    skillName: "VS Code",
+    icon: CodeXml,
+    color: "text-blue-400",
+    category: ["Primary", "Основные"],
+  },
+  {
+    skillName: "REST API",
+    icon: Settings,
+    color: "text-blue-300",
+    category: ["Primary", "Основные"],
+  },
 ];
 
 export const categoriesText = {
@@ -210,7 +322,7 @@ export const getProjects = (lang, isDarkTheme) => [
     title: "Movies-explorer",
     description:
       lang === "Eng"
-        ? "Веб-приложение, для поиска и просмотра понравившихся фильмов"
+        ? "Web-приложение с авторизацией для поиска и просмотра понравившихся фильмов"
         : "Web-service for searching and watching your favorite movies",
     image: moviesExplorerLogo,
     tags: [
@@ -219,6 +331,7 @@ export const getProjects = (lang, isDarkTheme) => [
       "Express.js",
       "MongoDB",
       "Webpack",
+      "REST API",
       "Mobile",
       "Tablet",
       "Desktop",
@@ -231,7 +344,7 @@ export const getProjects = (lang, isDarkTheme) => [
     title: "Mesto Russia (React)",
     description:
       lang === "Eng"
-        ? "Веб-приложение, чтобы загружать изображения в общую галерею и делиться ими с другими пользователями"
+        ? "Web-приложение с авторизацией, чтобы загружать изображения в общую галерею и делиться ими с другими пользователями"
         : "Web-service to upload images to a shared gallery and share them with other users",
     image: mestoReact,
     tags: [
@@ -240,6 +353,7 @@ export const getProjects = (lang, isDarkTheme) => [
       "Express.js",
       "MongoDB",
       "Webpack",
+      "REST API",
       "Mobile",
       "Tablet",
       "Desktop",
@@ -272,10 +386,10 @@ export const getProjects = (lang, isDarkTheme) => [
     title: "Mesto Russia (JavaScript)",
     description:
       lang === "Eng"
-        ? "Веб-приложение (без авторизации), чтобы загружать изображения в общую галерею и делиться ими с другими пользователями"
+        ? "Web-приложение (без авторизации), чтобы загружать изображения в общую галерею и делиться ими с другими пользователями"
         : "Web-service to upload images to a shared gallery and share them with other users",
     image: mestoJavaScript,
-    tags: ["JavaScript", "HTML", "CSS", "Mobile", "Tablet", "Desktop"],
+    tags: ["JavaScript", "OOP", "HTML", "CSS", "Mobile", "Tablet", "Desktop"],
     demoUrl: "https://sukhov-nikita.ru/mesto/dist/",
     gitHubUrl: "https://github.com/Watariii/mesto",
   },
