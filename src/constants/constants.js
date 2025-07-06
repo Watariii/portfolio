@@ -142,8 +142,16 @@ export const aboutSectionText = {
 };
 
 export const skillsSectionText = {
-  ru: ["Мои", "Навыки"],
-  eng: ["My", "Skills"],
+  ru: [
+    "Мои",
+    "Навыки",
+    "Основные навыки — активно использую в текущей работе и проектах. Вторичные навыки — применял ранее в отдельных задачах и проектах.",
+  ],
+  eng: [
+    "My",
+    "Skills",
+    "Primary skills - actively used in current work and projects. Secondary skills - previously used in individual tasks and projects.",
+  ],
 };
 //_________________________________________________________________________
 export const skills = [
@@ -478,7 +486,7 @@ export const projectsSectionText = {
   ru: [
     "Созданные",
     "Проекты",
-    "Представляю список моих завершенных проектов, каждый из которых был реализован с приоритетом на чистую архитектуру и создание качественного пользовательского опыта.",
+    "Представляю список моих завершенных проектов. Каждый проект можно открыть в демо режиме или открыть репозиторий с проектом на GitHub.",
     "Ссылка на демо проекта",
     "Ссылка на проект на GitHub",
     "Посмотреть мой GitHub",
@@ -486,7 +494,7 @@ export const projectsSectionText = {
   eng: [
     "Created",
     "Projects",
-    "Here is a list of my completed projects, each of which was implemented with a focus on clean architecture and creating a quality user experience.",
+    "Here is a list of my completed projects. Each project can be opened in demo mode or a repository with the project can be opened on GitHub.",
     "Link to demo project",
     "Link to project GitHub",
     "Check My Github",
@@ -512,4 +520,13 @@ export const contactSectionText = {
     "Korolev, Moscow, Russia",
     "Connect With Me",
   ],
+};
+
+export const notFoundPageText = {
+  ru: [
+    "Страница не найдена",
+    "Такой страницы не существует",
+    "Вернуться на главную",
+  ],
+  eng: ["Page not found", "This page does not exist", "Return to home"],
 };

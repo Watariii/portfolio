@@ -13,11 +13,11 @@ export const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="flex gap-2 items-center justify-center text-3xl md:text-4xl font-bold mb-4 text-center">
+        <h2 className="flex gap-2 items-center justify-center text-3xl md:text-4xl font-bold mb-4 text-center cursor-default">
           {text[0]}
-          <span className="text-primary">{text[1]}</span>
+          <span className="text-primary cursor-default">{text[1]}</span>
         </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto cursor-default">
           {text[2]}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -41,14 +41,14 @@ export const ProjectsSection = () => {
                   {project.tags.map((item, index) => (
                     <span
                       key={index}
-                      className={cn("px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground shadow-md", isDarkTheme && 'shadow-white/10')}
+                      className={cn("px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground shadow-md cursor-default", isDarkTheme && 'shadow-white/10')}
                     >
                       {item}
                     </span>
                   ))}
                 </div>
-                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">
+                <h3 className="text-xl font-semibold mb-1 cursor-default">{project.title}</h3>
+                <p className="text-muted-foreground text-sm mb-4 cursor-default">
                   {project.description}
                 </p>
                 <div className="flex justify-between items-center">

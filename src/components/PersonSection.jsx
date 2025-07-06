@@ -12,7 +12,7 @@ export const PersonSection = () => {
     >
       <div className="container max-w-4xl mx-auto text-center z-10">
         <div className="space-y-6">
-          <h1 className="text-2xl sm:text-4xl md:text-6xl flex flex-col items-center justify-center gap-2 font-bold tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl flex flex-col items-center justify-center gap-2 font-bold tracking-tight">
             <span className="opacity-0 animate-fade-in">{text[0]}</span>
             <div className="flex gap-2">
               <span className="text-primary opacity-0 animate-fade-in-delay-1">

@@ -80,36 +80,7 @@
 
     --border: 214 32% 91%;
 
-    /* color-scheme: light dark; */
   }
-
-  /* @media (prefers-color-scheme: light) {
-    :root {
-      --background: 210 40% 98%;
-      --foreground: 222 47% 11%;
-
-      --card: 0 0% 100%;
-
-      --primary: 250 47% 60%;
-      --primary-foreground: 210 40% 98%;
-
-      --border: 214 32% 91%;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: 222 47% 4%;
-      --foreground: 213 31% 91%;
-
-      --card: 222 47% 8%;
-
-      --primary: 250 65% 65%;
-      --primary-foreground: 213 31% 91%;
-
-      --border: 217 33% 20%;
-    }
-  } */
 
   .dark {
     --background: 222 47% 4%;

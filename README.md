@@ -1,12 +1,46 @@
-# React + Vite
+# Портфолио
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SPA-проект "Портфолио", созданное с использованием React, Tailwind CSS и Vite для презентации опыта и компетенций во fronted разбработке. Содержит проекты, навыки и контактную информацию.
 
-Currently, two official plugins are available:
+## Технологии
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **HTML**
+- **JavaScript (ES6+)**
+- **React**
+- **Tailwind CSS (v4)**
+- **Vite**
+- **NPM**
+- **[Lucide Icons (react-lucide)](https://lucide.dev/)** — библиотека иконок
 
-## Expanding the ESLint configuration
+## Запуск
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Установить зависимости:
+   ```bash
+   npm install
+   ```
+
+2. Запустить проект в режиме разработки:
+   ```bash
+   npm run dev
+   ```
+
+3. Собрать проект:
+   ```bash
+   npm run build
+   ```
+
+## Структура проекта
+
+```bash
+src/
+├── assets/          
+├── components/      
+├── pages/           
+├── App.jsx           
+├── main.jsx          
+```
+
+## Демо
+
+[Открыть демо-версию](https://sukhov-nikita.ru/)
+

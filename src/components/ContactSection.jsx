@@ -7,11 +7,11 @@ export const ContactSection = () => {
   return (
     <section id="contact" className="pt-24 pb-12 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="flex items-center justify-center gap-2 text-3xl md:text-4xl font-bold mb-4 text-center">
+        <h2 className="flex items-center justify-center gap-2 text-3xl md:text-4xl font-bold mb-4 text-center cursor-default">
           {text[0]}
-          <span className="text-primary">{text[1]}</span>
+          <span className="text-primary cursor-default">{text[1]}</span>
         </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto cursor-default">
           {text[2]}
         </p>
         <div className="flex flex-col items-center justify-center gap-12">

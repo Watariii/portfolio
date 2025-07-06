@@ -44,17 +44,20 @@ export const SkillsSection = () => {
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="flex gap-2 items-center justify-center text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2 className="flex gap-2 items-center justify-center text-3xl md:text-4xl font-bold mb-12 text-center cursor-default">
           {text[0]}
-          <span className="text-primary">{text[1]}</span>
+          <span className="text-primary cursor-default">{text[1]}</span>
         </h2>
+        <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto cursor-default">
+          {text[2]}
+        </p>
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((item, index) => (
             <button
               key={index}
               className={cn(
-                "px-5 py-2 rounded-full transition-color duration-300 capitalize hover:text-primary transition-colors",
-                activeCategory === item && "bg-primary text-primary-foreground"
+                "px-5 py-2 rounded-full hover:text-primary transition-colors duration-300",
+                activeCategory === item && "bg-primary text-primary-foreground hover:text-primary-foreground"
               )}
               onClick={() => {
                 setActiveCategory(item);
@@ -66,7 +69,7 @@ export const SkillsSection = () => {
         </div>
 
         <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-6">
-          {filtredSkills.map(({skillName, icon: Icon, color}, index) => (
+          {filtredSkills.map(({ skillName, icon: Icon, color }, index) => (
             <div
               key={index}
               className={cn(
